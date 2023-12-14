@@ -13,14 +13,16 @@ const listadoPlataformas = ["Twitter", "Facebook", "Youtube"];
 // MÉTODOS: Listado no requiere de métodos.
 // PROPS: Listado recibe el método heredado de App y se lo pasa a cada Item.
 
-export default function Tarjeta(props) {
+export default function Tarjeta({ onSelectFavorita }) {
   return (
     <ul>
-     
-          <Item 
-            props={listadoPlataformas}
-          />
-      
-    </ul>
+    {listadoPlataformas.map((plataforma, index) => (
+      <Item
+        key={index}
+        plataforma={plataforma}
+        onSelectFavorita={onSelectFavorita}
+      />
+    ))}
+  </ul>
   );
 }
